@@ -1045,3 +1045,19 @@ if (typeof gtag !== 'undefined') {
 console.log('🚀 BOROX Website загружен');
 console.log('📊 A/B тест: вариант', abVariant.toUpperCase());
 console.log('🤖 Чат-бот: сначала запрашивает контакты, потом меню');
+
+// ============================================
+// MOBILE UX: sticky header after first scroll
+// ============================================
+(function initStickyHeader() {
+  const header = document.getElementById('header');
+  if (!header) return;
+
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('is-sticky');
+    else header.classList.remove('is-sticky');
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
